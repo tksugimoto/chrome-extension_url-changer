@@ -1,0 +1,14 @@
+{
+	"name": "URL Change",
+	"version": "0.1.0",
+	"manifest_version": 3,
+	"description": "URLを変更する",
+	"permissions": [
+		"scripting",
+		"activeTab"
+	],
+	"action": {
+		"default_title": "URL変更",
+		"default_popup": "popup.html"
+	}
+}
