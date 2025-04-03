@@ -25,12 +25,14 @@ document.body.append(container);
 
 const list = [{
 	name: 'Hash削除',
+	accessKey: 'h',
 	/** @param {URL} url */
 	alterUrl: (url) => {
 		return `${url.pathname}${url.search}`;
 	},
 }, {
 	name: 'Query削除',
+	accessKey: 'q',
 	/** @param {URL} url */
 	alterUrl: (url) => {
 		return `${url.pathname}${url.hash}`;
@@ -40,6 +42,10 @@ const list = [{
 list.forEach(obj => {
 	const button = document.createElement('button');
 	button.innerText = obj.name;
+	if (obj.accessKey) {
+		button.innerText += ` (${obj.accessKey})`;
+		button.accessKey = obj.accessKey;
+	}
 	button.addEventListener('click', () => {
 		changeUrl(obj.alterUrl);
 	});
